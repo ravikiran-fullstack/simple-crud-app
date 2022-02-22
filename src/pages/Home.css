@@ -1,0 +1,60 @@
+.home {
+  background: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userTable {
+  background-color: #ddd;
+  border-radius: 5px;
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 0.9rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.userTable thead tr {
+  background-color: #327f87;
+  color: #fff;
+}
+
+.userTable th,
+.userTable td {
+  padding: 12px 15px;
+}
+
+.theadStyle {
+  width: 10rem;
+  text-align: center;
+}
+
+.userTable tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.btn {
+  padding: 0.25rem;
+  border-radius: 5px;
+  border: none;
+  width: 3rem;
+  margin-right: 5px;
+  color: white;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btnEdit {
+  background-color: rgb(6, 83, 6);
+}
+
+.btnDelete {
+  background-color: rgb(83, 6, 6);
+}
+
+.btnView {
+  background-color: rgb(6, 39, 83);
+}
