@@ -7,9 +7,13 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
+    console.log(location.pathname.includes("/update"));
     if (location.pathname === "/") {
       setActiveTab("Home");
-    } else if (location.pathname === "/add") {
+    } else if (
+      location.pathname === "/add" ||
+      location.pathname.includes("/update")
+    ) {
       setActiveTab("AddUser");
     } else if (location.pathname === "/about") {
       setActiveTab("About");

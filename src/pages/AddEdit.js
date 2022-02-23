@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import "./AddEdit.css";
 
 import { toast } from "react-toastify";
@@ -9,6 +9,28 @@ const AddEdit = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
+
+  const { id } = useParams();
+  console.log("id", id);
+
+  useEffect(() => {
+    if (id) {
+      console.log("id useEffect", id);
+      getSingleUser(id);
+    }
+  }, [id]);
+
+  const getSingleUser = async (id) => {
+    console.log("function called");
+    const response = await axios.get(`http://localhost:5000/users/${id}`);
+    if (response.status === 200) {
+      toast.success("data retrieved successfully");
+      console.log(response.data[0]);
+      setName(response.data[0].name);
+      setEmail(response.data[0].email);
+      setContact(response.data[0].contact);
+    }
+  };
 
   const history = useHistory();
   const addUserData = async () => {
@@ -86,7 +108,7 @@ const AddEdit = () => {
           />
         </div>
         <div>
-          <button type='submit'>Add User</button>
+          <button type='submit'>{id ? "Update" : "Add User"}</button>
         </div>
       </form>
     </div>
