@@ -52,10 +52,33 @@ const AddEdit = () => {
     }
   };
 
+  const updateData = async () => {
+    try {
+      const result = await axios.put(`http://localhost:5000/users/${id}`, {
+        name,
+        email,
+        contact,
+      });
+      if (result.status === 200) {
+        console.log(result.data);
+        toast(result.data);
+      }
+      setTimeout(() => {
+        history.push("/");
+      }, 500);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(name, email, contact);
-    addUserData();
+    if (!id) {
+      addUserData();
+    } else {
+      updateData();
+    }
   };
 
   return (
