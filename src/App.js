@@ -15,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <ToastContainer />
+      <ToastContainer position='top-center' />
       <Switch>
         <Route exact path='/' component={Home}></Route>
         <Route path='/add' component={AddEdit} />

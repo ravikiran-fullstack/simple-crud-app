@@ -3,11 +3,14 @@ import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
 import "./AddEdit.css";
 
+import { toast } from "react-toastify";
+
 const AddEdit = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
 
+  const history = useHistory();
   const addUserData = async () => {
     try {
       const result = await axios.post("http://localhost:5000/user", {
@@ -17,7 +20,11 @@ const AddEdit = () => {
       });
       if (result.status === 200) {
         console.log(result.data);
+        toast(result.data);
       }
+      setTimeout(() => {
+        history.push("/");
+      }, 500);
     } catch (error) {
       console.log(error);
     }
