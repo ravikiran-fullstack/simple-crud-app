@@ -14,7 +14,7 @@ const View = () => {
     fetchData();
   }, [id]);
   console.log("id", id);
-  return <div>View</div>;
+  return <div>View </div>;
 };
 
 export default View;
