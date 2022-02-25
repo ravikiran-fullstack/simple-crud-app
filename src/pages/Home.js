@@ -47,6 +47,11 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
+          {data.length === 0 ? (
+            <p>No contacts saved, go to add tab to create contact</p>
+          ) : (
+            ""
+          )}
           {data &&
             data.map((item, index) => {
               return (
